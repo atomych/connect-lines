@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="home-container">
+    <GameField :field="GAME.FIELD" />
   </div>
 </template>
 
+<style>
+.home-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import GameField from "@/components/game-field/game-field.vue";
+import GAME from "@/game";
 
 export default defineComponent({
   name: "HomeView",
   components: {
-    HelloWorld,
+    GameField,
+  },
+  setup() {
+    GAME.FIELD.setSize(3);
+    GAME.FIELD.setField();
+    return {
+      GAME,
+    };
   },
 });
 </script>
