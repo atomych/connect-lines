@@ -23,6 +23,7 @@ export const FIELD: Field = {
               state: reactive({
                 type: FieldCellState.Empty,
                 body: null,
+                color: null,
               }),
             })
           );
@@ -33,7 +34,18 @@ export const FIELD: Field = {
       throw new Error("FIELD.state.size == null");
     }
   },
-  setCell: (cell, body) => {
-    cell.state.body = body;
+  setCell: (coords, options) => {
+    if (
+      FIELD.state.size &&
+      coords.y <= FIELD.state.size &&
+      coords.x <= FIELD.state.size
+    ) {
+      FIELD.state.lines[coords.y].cells[coords.x].state.type =
+        options?.type || FieldCellState.Empty;
+      FIELD.state.lines[coords.y].cells[coords.x].state.body =
+        options?.body || null;
+      FIELD.state.lines[coords.y].cells[coords.x].state.color =
+        options?.color || null;
+    }
   },
 };

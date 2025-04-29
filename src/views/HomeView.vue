@@ -12,6 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: fixed;
 }
 </style>
 
@@ -28,6 +30,9 @@ export default defineComponent({
   setup() {
     GAME.FIELD.setSize(3);
     GAME.FIELD.setField();
+    GAME.FIELD.setCell({ x: 1, y: 1 }, GAME.CELL.POINT.RED);
+    GAME.FIELD.setCell({ x: 2, y: 2 }, GAME.CELL.POINT.RED);
+
     return {
       GAME,
     };

@@ -1,5 +1,9 @@
 <template>
-  <div class="game-field">
+  <div class="game-field" ref="container">
+    <ControlTouch
+      :position-y="TOUCH.state.touch.position.y"
+      :position-x="TOUCH.state.touch.position.x"
+    />
     <div
       class="game-field-line"
       v-for="(line, idx) in field.state.lines"

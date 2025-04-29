@@ -1,7 +1,7 @@
 export enum FieldCellState {
-  Empty,
-  Point,
-  Line,
+  Empty = "empty",
+  Point = "point",
+  Line = "line",
 }
 
 export type FieldCell = {
@@ -18,6 +18,17 @@ export type FieldLine = {
   cells: FieldCell[];
 };
 
+export type FieldSetCellCoords = {
+  x: number;
+  y: number;
+};
+
+export type FieldSetCellOptions = {
+  type: FieldCellState;
+  body: string | null;
+  color: string | null;
+};
+
 export type Field = {
   state: {
     lines: FieldLine[];
@@ -25,5 +36,5 @@ export type Field = {
   };
   setSize: (size: number) => void;
   setField: () => void;
-  setCell: (cell: FieldCell, body: string) => void;
+  setCell: (coords: FieldSetCellCoords, options: FieldSetCellOptions) => void;
 };

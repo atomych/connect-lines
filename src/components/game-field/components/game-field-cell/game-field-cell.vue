@@ -2,9 +2,15 @@
   <div
     class="game-field-cell"
     :style="{ width: size + 'px', height: size + 'px' }"
-    @click="console.log(cell)"
   >
-    <div class="game-field-cell-content"></div>
+    <div
+      class="game-field-cell-content"
+      :class="{
+        'game-field-cell-content_point':
+          cell.state.type === FieldCellState.Point,
+      }"
+      :style="{ backgroundColor: cell.state.color }"
+    ></div>
   </div>
 </template>
 
