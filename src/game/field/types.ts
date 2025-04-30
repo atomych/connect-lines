@@ -1,3 +1,5 @@
+import { LineColorType } from "@/game/line/types";
+
 export enum FieldCellState {
   Empty = "empty",
   Point = "point",
@@ -10,11 +12,11 @@ export type FieldCell = {
   state: {
     type: FieldCellState;
     body?: string | null;
-    color?: string | null;
+    color?: LineColorType | null;
   };
 };
 
-export type FieldLine = {
+export type FieldRows = {
   cells: FieldCell[];
 };
 
@@ -26,12 +28,12 @@ export type FieldSetCellCoords = {
 export type FieldSetCellOptions = {
   type: FieldCellState;
   body: string | null;
-  color: string | null;
+  color: LineColorType | null;
 };
 
 export type Field = {
   state: {
-    lines: FieldLine[];
+    lines: FieldRows[];
     size?: number | null;
   };
   setSize: (size: number) => void;

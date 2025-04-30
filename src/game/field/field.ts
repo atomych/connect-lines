@@ -1,5 +1,5 @@
 import { reactive } from "vue";
-import { Field, FieldCellState, FieldLine } from "@/game/field/types";
+import { Field, FieldCellState, FieldRows } from "@/game/field/types";
 
 export const FIELD: Field = {
   state: reactive({
@@ -12,7 +12,7 @@ export const FIELD: Field = {
   setField: () => {
     if (FIELD.state.size) {
       for (let row = 0; row < FIELD.state.size; row++) {
-        const line: FieldLine = {
+        const line: FieldRows = {
           cells: [],
         };
         for (let col = 0; col < FIELD.state.size; col++) {
