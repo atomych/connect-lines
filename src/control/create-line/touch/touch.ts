@@ -1,6 +1,9 @@
 import { reactive } from "vue";
 import { Touch } from "./types";
 import { FieldCellState } from "@/game/field/types";
+import game from "@/game";
+
+const LINE = game.LINE;
 
 export const TOUCH: Touch = {
   state: reactive({
@@ -46,27 +49,31 @@ export const TOUCH: Touch = {
   },
 
   onTouchStartOnCell: (event, cell) => {
-    if (cell.state.type === FieldCellState.Point) {
+    if (cell.state.type === FieldCellState.Point && cell.state.color) {
       TOUCH.state.start.cell = cell;
-    } else {
-      TOUCH.state.start.cell = null;
+      LINE.startLine(cell.state.color);
     }
   },
 
   onTouchEndOnCell: (event, cell) => {
-    if (TOUCH.state.end.cell) {
-      console.log("Линия соединилась");
-      console.log(TOUCH.state.currentLine);
+    if (
+      TOUCH.state.currentLine.length > 0 &&
+      TOUCH.state.start.cell &&
+      TOUCH.state.start.cell.state.color
+    ) {
+      LINE.setLine({
+        completed: !!TOUCH.state.end.cell,
+        cells: [
+          ...(TOUCH.state.start.cell ? [TOUCH.state.start.cell] : []),
+          ...TOUCH.state.currentLine,
+          ...(TOUCH.state.end.cell ? [TOUCH.state.end.cell] : []),
+        ],
+        colorType: TOUCH.state.start?.cell.state.color,
+      });
       TOUCH.state.start.cell = null;
       TOUCH.state.currentLine = [];
       TOUCH.state.end.cell = null;
-    } else if (TOUCH.state.currentLine.length > 0) {
-      console.log("Линия не соединилась");
-      console.log(TOUCH.state.currentLine);
-      TOUCH.state.start.cell = null;
-      TOUCH.state.currentLine = [];
     } else {
-      console.log("Линия не была начата");
       TOUCH.state.start.cell = null;
     }
   },

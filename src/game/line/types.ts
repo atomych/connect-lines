@@ -17,5 +17,7 @@ export type Line = {
   state: {
     lines: GameLine[];
   };
-  setLine: (cells: FieldCell[], color: LineColorType) => void;
+  setLine: (options: GameLine) => void;
+  startLine: (colorType: LineColorType) => void;
+  resetLine: (colorType: LineColorType) => void;
 };
