@@ -8,6 +8,7 @@
       :class="{
         'game-field-cell-content_point':
           cell.state.type === FieldCellState.Point,
+        'game-field-cell-content_line': cell.state.type === FieldCellState.Line,
       }"
       :style="{ backgroundColor: cell.state.color }"
     ></div>

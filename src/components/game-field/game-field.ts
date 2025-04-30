@@ -1,4 +1,4 @@
-import { defineComponent, PropType, onMounted, ref, useTemplateRef } from "vue";
+import { defineComponent, PropType } from "vue";
 import type { Field } from "@/game/field/types";
 import GameFieldCell from "@/components/game-field/components/game-field-cell/game-field-cell.vue";
 import ControlTouch from "@/components/control-touch/control-touch.vue";
@@ -18,14 +18,8 @@ export default defineComponent({
   },
   setup() {
     const TOUCH = createLine.TOUCH;
-    const container = useTemplateRef("container");
-
-    onMounted(() => {
-      TOUCH.addListeners(container.value);
-    });
 
     return {
-      ref,
       TOUCH,
     };
   },
