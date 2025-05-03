@@ -3,7 +3,6 @@
     class="game-field"
     ref="container"
     @mousedown="TOUCH.onTouchStart($event)"
-    @mousemove="TOUCH.onTouchMove($event)"
     @mouseup="TOUCH.onTouchEnd($event)"
   >
     <ControlTouch

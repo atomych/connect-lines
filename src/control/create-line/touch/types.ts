@@ -9,16 +9,10 @@ export type Touch = {
         y: number | null;
       };
     };
-    start: {
-      cell: FieldCell | null;
-    };
-    currentLine: FieldCell[];
-    end: {
-      cell: FieldCell | null;
-    };
+    lineCells: FieldCell[];
   };
   onTouchStart: (event: any) => void;
-  onTouchMove: (event: any) => void;
+  changePointerPosition: (event: any) => void;
   onTouchEnd: (event: any) => void;
   onTouchStartOnCell: (event: any, cell: FieldCell) => void;
   onTouchEndOnCell: (event: any, cell: FieldCell) => void;

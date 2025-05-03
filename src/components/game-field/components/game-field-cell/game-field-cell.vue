@@ -2,7 +2,16 @@
   <div
     class="game-field-cell"
     :style="{ width: size + 'px', height: size + 'px' }"
+    :class="cell.state?.displayClasses"
   >
+    <div
+      class="game-field-cell-dir-1"
+      :style="{ backgroundColor: cell.state.color }"
+    ></div>
+    <div
+      class="game-field-cell-dir-2"
+      :style="{ backgroundColor: cell.state.color }"
+    ></div>
     <div
       class="game-field-cell-content"
       :class="{

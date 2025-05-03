@@ -14,23 +14,17 @@ export const TOUCH: Touch = {
         y: null,
       },
     },
-    start: {
-      cell: null,
-    },
-    currentLine: [],
-    end: {
-      cell: null,
-    },
+    lineCells: [],
   }),
 
   onTouchStart: (event) => {
-    if (!TOUCH.state.start.cell) event.preventDefault();
+    if (!TOUCH.state.lineCells.length) event.preventDefault();
     else {
       TOUCH.state.touch.isActive = true;
     }
   },
 
-  onTouchMove: (event) => {
+  changePointerPosition: (event) => {
     if (!TOUCH.state.touch.isActive) return;
     if (event.touches) {
       TOUCH.state.touch.position.x = event.touches[0].clientX;
@@ -46,52 +40,33 @@ export const TOUCH: Touch = {
     TOUCH.state.touch.isActive = false;
     TOUCH.state.touch.position.x = null;
     TOUCH.state.touch.position.y = null;
+    TOUCH.state.lineCells = [];
   },
 
   onTouchStartOnCell: (event, cell) => {
     if (cell.state.type === FieldCellState.Point && cell.state.color) {
-      TOUCH.state.start.cell = cell;
-      LINE.startLine(cell.state.color);
+      TOUCH.state.lineCells.push(cell);
+      LINE.updateLine(TOUCH.state.lineCells);
     }
   },
 
   onTouchEndOnCell: (event, cell) => {
-    if (
-      TOUCH.state.currentLine.length > 0 &&
-      TOUCH.state.start.cell &&
-      TOUCH.state.start.cell.state.color
-    ) {
-      LINE.setLine({
-        completed: !!TOUCH.state.end.cell,
-        cells: [
-          ...(TOUCH.state.start.cell ? [TOUCH.state.start.cell] : []),
-          ...TOUCH.state.currentLine,
-          ...(TOUCH.state.end.cell ? [TOUCH.state.end.cell] : []),
-        ],
-        colorType: TOUCH.state.start?.cell.state.color,
-      });
-      TOUCH.state.start.cell = null;
-      TOUCH.state.currentLine = [];
-      TOUCH.state.end.cell = null;
-    } else {
-      TOUCH.state.start.cell = null;
-    }
+    LINE.updateLine(TOUCH.state.lineCells);
+    TOUCH.state.lineCells = [];
   },
 
   onTouchMoveOnCell: (event, cell) => {
-    if (TOUCH.state.start.cell && TOUCH.state.touch.isActive) {
-      console.log(cell);
-      console.log(cell.state.type);
+    if (TOUCH.state.touch.isActive) {
       if (cell.state.type === FieldCellState.Empty) {
-        cell.state.type = FieldCellState.Line;
-        cell.state.color = TOUCH.state.start.cell.state.color;
-        TOUCH.state.currentLine.push(cell);
+        TOUCH.state.lineCells.push(cell);
+        LINE.updateLine(TOUCH.state.lineCells);
       } else if (
         cell.state.type === FieldCellState.Point &&
-        cell.state.color === TOUCH.state.start.cell.state.color &&
-        TOUCH.state.currentLine.length > 0
+        cell.state.color === TOUCH.state.lineCells[0].state.color &&
+        TOUCH.state.lineCells.length > 1
       ) {
-        TOUCH.state.end.cell = cell;
+        TOUCH.state.lineCells.push(cell);
+        LINE.updateLine(TOUCH.state.lineCells);
         TOUCH.state.touch.isActive = false;
       }
     }

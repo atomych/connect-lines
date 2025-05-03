@@ -11,4 +11,9 @@ export type Cell = {
     };
   };
   setStateType: (cell: FieldCell, state: FieldCellState) => void;
+  getDisplayClasses: (
+    prevCell: FieldCell | null,
+    currentCell: FieldCell,
+    nextCell: FieldCell | null
+  ) => string;
 };

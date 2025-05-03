@@ -13,6 +13,7 @@ export type FieldCell = {
     type: FieldCellState;
     body?: string | null;
     color?: LineColorType | null;
+    displayClasses?: string;
   };
 };
 
