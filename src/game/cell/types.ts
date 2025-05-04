@@ -9,6 +9,21 @@ export type Cell = {
       color: LineColorType;
       body: string | null;
     };
+    BLUE: {
+      type: FieldCellState;
+      color: LineColorType;
+      body: string | null;
+    };
+    GREEN: {
+      type: FieldCellState;
+      color: LineColorType;
+      body: string | null;
+    };
+    YELLOW: {
+      type: FieldCellState;
+      color: LineColorType;
+      body: string | null;
+    };
   };
   setStateType: (cell: FieldCell, state: FieldCellState) => void;
   getDisplayClasses: (

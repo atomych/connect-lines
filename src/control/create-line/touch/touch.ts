@@ -63,7 +63,8 @@ export const TOUCH: Touch = {
       } else if (
         cell.state.type === FieldCellState.Point &&
         cell.state.color === TOUCH.state.lineCells[0].state.color &&
-        TOUCH.state.lineCells.length > 1
+        TOUCH.state.lineCells.length > 1 &&
+        cell !== TOUCH.state.lineCells[0]
       ) {
         TOUCH.state.lineCells.push(cell);
         LINE.updateLine(TOUCH.state.lineCells);

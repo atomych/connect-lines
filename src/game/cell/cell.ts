@@ -9,6 +9,21 @@ export const CELL: Cell = {
       color: LineColorType.Red,
       body: null,
     },
+    BLUE: {
+      type: FieldCellState.Point,
+      color: LineColorType.Blue,
+      body: null,
+    },
+    GREEN: {
+      type: FieldCellState.Point,
+      color: LineColorType.Green,
+      body: null,
+    },
+    YELLOW: {
+      type: FieldCellState.Point,
+      color: LineColorType.Yellow,
+      body: null,
+    },
   },
   setStateType: (cell, state) => {
     cell.state.type = state;
@@ -34,10 +49,26 @@ export const CELL: Cell = {
       classes += "g-l-f ";
       if (prev.posY == next.posY) classes += "h-l";
       if (prev.posX == next.posX) classes += "v-l";
-      if (prev.posY < next.posY && prev.posX < next.posX) classes += "c-t-r";
-      if (prev.posY > next.posY && prev.posX > next.posX) classes += "c-b-l";
-      if (prev.posY < next.posY && prev.posX > next.posX) classes += "c-b-r";
-      if (prev.posY > next.posY && prev.posX < next.posX) classes += "c-t-l";
+      if (
+        (prev.posY < current.posY && next.posX > current.posX) ||
+        (next.posY < current.posY && prev.posX > current.posX)
+      )
+        classes += "c-t-r";
+      if (
+        (prev.posY < current.posY && next.posX < current.posX) ||
+        (next.posY < current.posY && prev.posX < current.posX)
+      )
+        classes += "c-t-l";
+      if (
+        (prev.posY > current.posY && next.posX > current.posX) ||
+        (next.posY > current.posY && prev.posX > current.posX)
+      )
+        classes += "c-b-r";
+      if (
+        (prev.posY > current.posY && next.posX < current.posX) ||
+        (next.posY > current.posY && prev.posX < current.posX)
+      )
+        classes += "c-b-l";
     }
 
     return classes;
