@@ -21,6 +21,7 @@
 import { defineComponent } from "vue";
 import GameField from "@/components/game-field/game-field.vue";
 import GAME from "@/game";
+import { LineColorType } from "@/game/line/types";
 
 export default defineComponent({
   name: "HomeView",
@@ -28,11 +29,31 @@ export default defineComponent({
     GameField,
   },
   setup() {
-    GAME.FIELD.setSize(3);
-    GAME.FIELD.setField();
-    GAME.FIELD.setCell({ x: 1, y: 1 }, GAME.CELL.POINT.RED);
-    GAME.FIELD.setCell({ x: 2, y: 2 }, GAME.CELL.POINT.RED);
-
+    GAME.LEVEL.loadLevelFromConfig({
+      fieldSize: 5,
+      points: [
+        {
+          color: LineColorType.Red,
+          posX: 0,
+          posY: 0,
+        },
+        {
+          color: LineColorType.Red,
+          posX: 3,
+          posY: 2,
+        },
+        {
+          color: LineColorType.Green,
+          posX: 0,
+          posY: 3,
+        },
+        {
+          color: LineColorType.Green,
+          posX: 1,
+          posY: 4,
+        },
+      ],
+    });
     return {
       GAME,
     };

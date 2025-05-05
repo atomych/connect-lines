@@ -4,22 +4,22 @@ import type { FieldCell } from "@/game/field/types";
 
 export type Cell = {
   POINT: {
-    RED: {
+    red: {
       type: FieldCellState;
       color: LineColorType;
       body: string | null;
     };
-    BLUE: {
+    blue: {
       type: FieldCellState;
       color: LineColorType;
       body: string | null;
     };
-    GREEN: {
+    green: {
       type: FieldCellState;
       color: LineColorType;
       body: string | null;
     };
-    YELLOW: {
+    yellow: {
       type: FieldCellState;
       color: LineColorType;
       body: string | null;

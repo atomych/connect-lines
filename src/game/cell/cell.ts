@@ -4,22 +4,22 @@ import type { Cell } from "@/game/cell/types";
 
 export const CELL: Cell = {
   POINT: {
-    RED: {
+    red: {
       type: FieldCellState.Point,
       color: LineColorType.Red,
       body: null,
     },
-    BLUE: {
+    blue: {
       type: FieldCellState.Point,
       color: LineColorType.Blue,
       body: null,
     },
-    GREEN: {
+    green: {
       type: FieldCellState.Point,
       color: LineColorType.Green,
       body: null,
     },
-    YELLOW: {
+    yellow: {
       type: FieldCellState.Point,
       color: LineColorType.Yellow,
       body: null,
