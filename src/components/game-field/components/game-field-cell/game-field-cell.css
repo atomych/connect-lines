@@ -12,105 +12,101 @@
 }
 
 .game-field-cell.g-l-h.t .game-field-cell-dir-1 {
-    width: 40px;
+    width: 30px;
     height: 40px;
     top: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell.g-l-h.r .game-field-cell-dir-1 {
     width: 40px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     right: 0;
 }
 
 .game-field-cell.g-l-h.b .game-field-cell-dir-1 {
-    width: 40px;
+    width: 30px;
     height: 40px;
     bottom: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell.g-l-h.l .game-field-cell-dir-1 {
     width: 40px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     left: 0;
 }
 
 .game-field-cell.g-l-f.v-l .game-field-cell-dir-1 {
-    width: 40px;
+    width: 30px;
     height: 80px;
     top: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell.g-l-f.h-l .game-field-cell-dir-1 {
     width: 80px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     left: 0;
 }
 
-.game-field-cell.g-l-f.c-b-r {
-
-}
-
 .game-field-cell.g-l-f.c-t-r .game-field-cell-dir-1 {
-    width: 40px;
+    width: 30px;
     height: 40px;
     top: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell.g-l-f.c-t-r .game-field-cell-dir-2 {
     width: 40px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     right: 0;
 }
 
 .game-field-cell.g-l-f.c-t-l .game-field-cell-dir-1 {
-    width: 40px;
+    width: 30px;
     height: 40px;
     top: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell.g-l-f.c-t-l .game-field-cell-dir-2 {
     width: 40px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     left: 0;
 }
 
 .game-field-cell.g-l-f.c-b-r .game-field-cell-dir-1 {
     width: 40px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     right: 0;
 }
 
 .game-field-cell.g-l-f.c-b-r .game-field-cell-dir-2 {
-    width: 40px;
+    width: 30px;
     height: 40px;
     bottom: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell.g-l-f.c-b-l .game-field-cell-dir-1 {
     width: 40px;
-    height: 40px;
-    top: 19px;
+    height: 30px;
+    top: 24px;
     left: 0;
 }
 
 .game-field-cell.g-l-f.c-b-l .game-field-cell-dir-2 {
-    width: 40px;
+    width: 30px;
     height: 40px;
     bottom: 0;
-    left: 19px;
+    left: 24px;
 }
 
 .game-field-cell-content_point {
@@ -121,6 +117,7 @@
 }
 
 .game-field-cell-content_line {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }

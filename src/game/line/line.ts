@@ -44,6 +44,7 @@ export const LINE: Line = {
           cell.state.type = FieldCellState.Empty;
           cell.state.color = null;
         }
+        cell.state.displayClasses = "";
       });
       LINE.state.lines = LINE.state.lines.filter((line) => line !== target);
     }
