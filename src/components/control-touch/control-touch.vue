@@ -3,8 +3,9 @@
     class="control-touch"
     v-if="positionX && positionY"
     :style="{
-      top: positionY - 25 + 'px',
-      left: positionX - 25 + 'px',
+      top: positionY - 50 + 'px',
+      left: positionX - 50 + 'px',
+      backgroundColor: color,
     }"
   ></div>
 </template>

@@ -1,9 +1,11 @@
 import type { FieldCell } from "@/game/field/types";
+import { LineColorType } from "@/game/line/types";
 
 export type Touch = {
   state: {
     touch: {
       isActive: boolean;
+      color: LineColorType | null;
       position: {
         x: number | null;
         y: number | null;

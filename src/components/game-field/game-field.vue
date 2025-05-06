@@ -8,6 +8,7 @@
     <ControlTouch
       :position-y="Number(TOUCH.state.touch.position.y)"
       :position-x="Number(TOUCH.state.touch.position.x)"
+      :color="TOUCH.state.touch.color"
     />
     <div
       class="game-field-line"

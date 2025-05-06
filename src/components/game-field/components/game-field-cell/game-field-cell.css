@@ -4,11 +4,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    box-sizing: border-box;
 }
 
 .game-field-cell-dir-1,
 .game-field-cell-dir-2 {
     position: absolute;
+    z-index: 10;
 }
 
 .game-field-cell.g-l-h.t .game-field-cell-dir-1 {

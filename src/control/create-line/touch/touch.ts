@@ -9,6 +9,7 @@ export const TOUCH: Touch = {
   state: reactive({
     touch: {
       isActive: false,
+      color: null,
       position: {
         x: null,
         y: null,
@@ -45,6 +46,7 @@ export const TOUCH: Touch = {
 
   onTouchStartOnCell: (event, cell) => {
     if (cell.state.type === FieldCellState.Point && cell.state.color) {
+      TOUCH.state.touch.color = cell.state.color;
       TOUCH.state.lineCells.push(cell);
       LINE.updateLine(TOUCH.state.lineCells);
     }
@@ -53,9 +55,12 @@ export const TOUCH: Touch = {
   onTouchEndOnCell: (event, cell) => {
     LINE.updateLine(TOUCH.state.lineCells);
     TOUCH.state.lineCells = [];
+    TOUCH.state.touch.position.x = null;
+    TOUCH.state.touch.position.y = null;
   },
 
   onTouchMoveOnCell: (event, cell) => {
+    TOUCH.changePointerPosition(event);
     if (TOUCH.state.touch.isActive) {
       if (cell.state.type === FieldCellState.Empty) {
         TOUCH.state.lineCells.push(cell);

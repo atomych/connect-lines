@@ -13,5 +13,10 @@ export default defineComponent({
       type: Number,
       default: 0,
     },
+    color: {
+      required: false,
+      type: String,
+      default: "#000",
+    },
   },
 });
