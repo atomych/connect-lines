@@ -49,6 +49,10 @@ export const TOUCH: Touch = {
       TOUCH.state.touch.color = cell.state.color;
       TOUCH.state.lineCells.push(cell);
       LINE.updateLine(TOUCH.state.lineCells);
+    } else if (cell.state.type === FieldCellState.Line && cell.state.color) {
+      TOUCH.state.touch.color = cell.state.color;
+      TOUCH.state.lineCells = LINE.getCellsBefore(cell);
+      LINE.updateLine(TOUCH.state.lineCells);
     }
   },
 
@@ -74,6 +78,9 @@ export const TOUCH: Touch = {
         TOUCH.state.lineCells.push(cell);
         LINE.updateLine(TOUCH.state.lineCells);
         TOUCH.state.touch.isActive = false;
+        TOUCH.state.touch.position.x = null;
+        TOUCH.state.touch.position.y = null;
+        TOUCH.state.lineCells = [];
       }
     }
   },

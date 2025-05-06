@@ -19,4 +19,5 @@ export type Line = {
   };
   updateLine: (cells: FieldCell[]) => void;
   resetLine: (colorType: LineColorType) => void;
+  getCellsBefore: (cell: FieldCell) => FieldCell[];
 };
